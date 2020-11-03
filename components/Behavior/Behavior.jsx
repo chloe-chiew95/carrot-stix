@@ -1,5 +1,6 @@
 import { useQuery, useMutation } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import {Table} from 'react-bootstrap'
 
 const GET_BEHAVIOR = gql`
   query {
@@ -34,6 +35,8 @@ const BehaviorInfo = () => {
     });
   };
 
+
+
   const [updateBehavior] = useMutation(SET_BEHAVIOR, { update: updateCache });
 
   if (loading) return <p>Loading...</p>;
@@ -41,18 +44,16 @@ const BehaviorInfo = () => {
 
   const updateBehaviorDetails = () => {
     updateBehavior({
-      variables: {id: 1, name: "Doing Homework", point: 50 },
+      variables: {id: 2, name: "New", point: 100 },
     });
   };
 
+
   return (
     <div>
-      <p>
-        {data.behavior.name} - {data.behavior.author}
-      </p>
-      <button onClick={updateBehaviorDetails}>Update Behavior</button>
+{data.behavior.id} - {data.behavior.name} - {data.behavior.point}
     </div>
-  );
+    )
 };
 
 export default BehaviorInfo;

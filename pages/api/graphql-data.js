@@ -1,10 +1,12 @@
 import { ApolloServer, gql } from "apollo-server-micro";
 
-let book = {
+let behavior = {
     id: 1, 
     name: "Doing Homework", 
     point: 50
-};
+}
+   
+;
 
 const typeDefs = gql`
   type Behavior {
@@ -16,7 +18,7 @@ const typeDefs = gql`
     behavior: Behavior
   }
   type Mutation {
-    UpdateBehavior(id: ID!, name: String!, point: Int!): Behavior
+    updateBehavior(id: ID!, name: String!, point: Int!): Behavior
   }
 `;
 
