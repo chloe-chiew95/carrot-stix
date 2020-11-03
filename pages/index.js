@@ -9,7 +9,6 @@ import {
   Dropdown,
 } from "react-bootstrap";
 import Layout from "../components/layout";
-import styles from "../styles/Home.module.css";
 import NavBar from "../components/navbar";
 import { Component } from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
@@ -30,17 +29,14 @@ export default function Home() {
         <Tab eventKey="pointrecord" title="Points Record">
           <PointTab />
         </Tab>
-        <Tab eventKey="history" title="History">
-          <BehaviorComponent />
-        </Tab>
       </Tabs>
     </Layout>
   );
 }
 
-class RedeemReward extends Component{
-  render(){
-    return(
+class RedeemReward extends Component {
+  render() {
+    return (
       <div>
         <div>
           Child's name:
@@ -59,69 +55,71 @@ class RedeemReward extends Component{
           <h4>Available rewards:</h4>
         </div>
         <Table striped bordered hover size="sm">
-        <thead>
-                <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Points Quota</th>
-                <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td>1</td>
-                <td>Coloring Book</td>
-                <td>400</td>
-                <td>
-                  <Button type="button" class="btn btn-primary btn-sm">Redeem</Button>
-                </td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>Theme Park</td>
-                <td>2000</td>
-                <td>
-                  <Button type="button" class="btn btn-primary btn-sm">Redeem</Button>
-                </td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td>New Toy</td>
-                <td>1000</td>
-                <td>
-                  <Button type="button" class="btn btn-primary btn-sm">Redeem</Button>
-                </td>
-                </tr>
-                </tbody>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Points Quota</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Coloring Book</td>
+              <td>400</td>
+              <td>
+                <Button type="button" class="btn btn-primary btn-sm">
+                  Redeem
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Theme Park</td>
+              <td>2000</td>
+              <td>
+                <Button type="button" class="btn btn-primary btn-sm">
+                  Redeem
+                </Button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>New Toy</td>
+              <td>1000</td>
+              <td>
+                <Button type="button" class="btn btn-primary btn-sm">
+                  Redeem
+                </Button>
+              </td>
+            </tr>
+          </tbody>
         </Table>
       </div>
     );
   }
-} 
+}
 
-class ViewRewardList extends Component{
-  render(){
-    return(
+class ViewRewardList extends Component {
+  render() {
+    return (
       <div>
-        <Table striped bordered hover size="sm" className='m-2'>
-            <th>
-              Reward  
-            </th>
-            <th>
-              Points Quota
-            </th>
-            <tr>
+        <Table striped bordered hover size="sm" className="m-2">
+          <th>Reward</th>
+          <th>Points Quota</th>
+          <tr>
             <td>Coloring Book</td>
-                <td>400</td>
-            </tr>
-            <tr>
+            <td>400</td>
+          </tr>
+          <tr>
             <td>New Toy</td>
-                <td>1000</td>
-            </tr>
-            <tr>
+            <td>1000</td>
+          </tr>
+          <tr>
             <td>Theme Park</td>
-                <td>2000</td>
-            </tr>
+            <td>2000</td>
+          </tr>
         </Table>
       </div>
     );
@@ -144,7 +142,7 @@ class BehaviorTab extends Component {
           Merit point(s):
           {" 50 pts"}
         </div>
-        <br/>
+        <br />
         <div className="mt-2 text-success">
           Merit point(s) after update:
           {" 50 pts"}
@@ -174,46 +172,6 @@ class BehaviorTab extends Component {
             Confirm
           </Button>
         </div>
-        <Table striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Behavior</th>
-              <th>Type</th>
-              <th>Points</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Doing Homework</td>
-              <td>Merit</td>
-              <td>50</td>
-              <td>
-                <input type="checkbox" id="exampleCheck1"/>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Eating Vegetables</td>
-              <td>Merit</td>
-              <td>50</td>
-              <td>
-              <input type="checkbox" id="exampleCheck1"/>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Fighting with sibling</td>
-              <td>Demerit</td>
-              <td>-40</td>
-              <td>
-              <input type="checkbox" id="exampleCheck1"/>
-              </td>
-            </tr>
-          </tbody>
-        </Table>
       </div>
     );
   }
@@ -224,15 +182,14 @@ class RewardTab extends Component {
     return (
       <div className="m-3">
         <Tabs defaultActiveKey="view" id="uncontrolled-tab-example">
-        <Tab eventKey="view" title="View Reward List">
-          <ViewRewardList/>
-        </Tab>
-        <Tab eventKey="redeem" title="Redeem Reward">
-          <br/>
-          <RedeemReward/>
-        </Tab>
-      </Tabs>
-      
+          <Tab eventKey="view" title="View Reward List">
+            <ViewRewardList />
+          </Tab>
+          <Tab eventKey="redeem" title="Redeem Reward">
+            <br />
+            <RedeemReward />
+          </Tab>
+        </Tabs>
       </div>
     );
   }
@@ -240,28 +197,26 @@ class RewardTab extends Component {
 
 class PointTab extends Component {
   render() {
-    return <div>
-        <Table striped bordered hover size="sm" className='m-2'>
-            <th>
-              Child Name  
-            </th>
-            <th>
-              Points
-            </th>
-            <tr>
+    return (
+      <div>
+        <Table striped bordered hover size="sm" className="m-2">
+          <th>Child Name</th>
+          <th>Points</th>
+          <tr>
             <td>Becky</td>
-                <td>1500</td>
-            </tr>
-            <tr>
+            <td>1500</td>
+          </tr>
+          <tr>
             <td>Newman</td>
-                <td>1000</td>
-            </tr>
-            <tr>
+            <td>1000</td>
+          </tr>
+          <tr>
             <td>Ted</td>
-                <td>2000</td>
-            </tr>
-        </Table>  
-    </div>;
+            <td>2000</td>
+          </tr>
+        </Table>
+      </div>
+    );
   }
 }
 
