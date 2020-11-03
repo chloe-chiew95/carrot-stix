@@ -1,65 +1,77 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import {Tabs,Tab,Form,Button} from 'react-bootstrap';
+import Layout from '../components/layout';
+import styles from '../styles/Home.module.css';
+import NavBar from '../components/navbar'
+import { Component } from 'react';
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient, { gql } from "apollo-boost";
+import { Behavior } from "../components/Behavior";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+  <Layout>
+    <NavBar/>
+      <Tabs defaultActiveKey="meritdemerit" id="uncontrolled-tab-example">
+        <Tab eventKey="meritdemerit" title="Give Merit/Demerit">
+        <BehaviorTab/>
+        </Tab>
+        <Tab eventKey="reward" title="Reward List">
+        <RewardTab/>
+        </Tab>
+        <Tab eventKey="pointrecord" title="Points Record">
+          <MeritTab/>
+        </Tab>
+        <Tab eventKey="history" title="History">
+          <BehaviorComponent />
+        </Tab>
+      </Tabs>
+  </Layout> 
   )
 }
+
+class BehaviorTab extends Component{
+  render(){
+    return(
+      <div className={styles.main}>
+      
+      </div>
+    )
+  }
+}
+
+class RewardTab extends Component{
+  render(){
+    return(
+      <div className={styles.main}>
+        This is Tab 2
+      </div>
+    )
+  }
+}
+
+class MeritTab extends Component{
+  render(){
+    return(
+      <div className={styles.main}>
+        This is Tab 2
+      </div>
+    )
+  }
+}
+
+
+
+const BehaviorComponent = ({ data }) => {
+  const client = new ApolloClient({
+    uri: "http://localhost:3000/api/graphql-data",
+  });
+
+  return (
+    <ApolloProvider client={client}>
+      <div>
+        <h3>History</h3>
+        <Behavior />
+      </div>
+    </ApolloProvider>
+  );
+};
