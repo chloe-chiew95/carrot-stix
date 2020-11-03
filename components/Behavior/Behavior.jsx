@@ -12,7 +12,7 @@ const GET_BEHAVIOR = gql`
 `;
 
 const SET_BEHAVIOR = gql`
-  mutation UpdateBehavior($id: ID!, $name: String!, $point: String!) {
+  mutation UpdateBehavior($id: ID!, $name: String!, $point: Int!) {
     updateBehavior(id: $id, name: $name, point: $point) {
         id
         name

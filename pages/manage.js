@@ -25,6 +25,7 @@ export default function Manage() {
     )
   }
   class BehaviorTab extends Component{
+
     render(){
       return(
         <div className='m-3'>
@@ -38,6 +39,7 @@ export default function Manage() {
 
               <DropdownButton className='ml-5' id="dropdown-basic-button" title="Sort By">
                 <Dropdown.Item href="#/action-1">Name</Dropdown.Item>
+                <Dropdown.Item href="#/action-1">Type</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">Point (Ascending)</Dropdown.Item>
                 <Dropdown.Item href="#/action-3">Point (Descending)</Dropdown.Item>
               </DropdownButton>
